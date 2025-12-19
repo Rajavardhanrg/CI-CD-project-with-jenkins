@@ -50,8 +50,8 @@ pipeline {
         stage('Run Container') {
             steps {
                 sh '''
-                docker stop c1 || true
-                docker rm c1 || true
+                docker stop ci-cd-c1 || true
+                docker rm ci-cd-c1 || true
                 docker run -d --name ci-cd-c1 -p 9001:8080 rajavardhanrg30/ci-cd-app:1
                 '''
             }
