@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: ci-app-container
-          image: rajavardhanrg30/ci-app:1
+          image: rajavardhanrg30/ci-cd-app:1
           ports:
             - containerPort: 8080
