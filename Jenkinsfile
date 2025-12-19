@@ -11,7 +11,7 @@ pipeline {
         stage('Git Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/Rajavardhanrg/CI-project.git'
+                    url: 'https://github.com/Rajavardhanrg/CI-CD-project-with-jenkins.git'
             }
         }
 
