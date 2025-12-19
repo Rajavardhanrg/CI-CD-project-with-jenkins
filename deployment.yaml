@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ci-cd-deployment
+  labels:
+    app: ci-app
+spec:
+  replicas: 2
+  selectors:
+    matchLabels:
+      app: ci-app
+  template:
+    metadata:
+      labels:
+        app: ci-app
+    spec:
+      containers:
+        - name: ci-app-container
+          image: rajavardhanrg30/ci-app:1
+          ports:
+            - containerPort: 8080
