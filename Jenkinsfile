@@ -59,7 +59,7 @@ pipeline {
 
         stage('Deploy to Kubernetes') {
             steps {
-                dir('/var/lib/jenkins/workspace/pipeline') {
+                dir('/var/lib/jenkins/workspace/raju-ci-cd') {
                 withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'k8s', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
                 sh '''
 				kubectl delete --all pods
