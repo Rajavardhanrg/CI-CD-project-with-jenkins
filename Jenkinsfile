@@ -60,10 +60,12 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 dir('/var/lib/jenkins/workspace/pipeline') {
-                         withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'k8s', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
-                         sh 'kubectl delete --all pods'
-                         sh 'kubectl apply -f deployment.yaml'
-                         sh 'kubectl apply -f service.yaml'
+                withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'k8s', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
+                sh '''
+				kubectl delete --all pods
+                kubectl apply -f deployment.yaml
+                kubectl apply -f service.yaml
+				'''
             } 
         }
     }
